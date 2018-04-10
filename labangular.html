@@ -1,0 +1,41 @@
+<html ng-app="labApp">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="app.js"></script>
+</head>
+
+<body>
+
+<div class="container" ng-controller="labAppController">
+	<div class="jumbotron text-center">
+		<h1>{{message}}</h1>
+	</div>
+	
+	<h3>{{title}}</h3>
+	<form name="myForm" >
+		<input class="form-control" type="text" name="myField" ng-model="member.name" placeholder="Nome do heroi" required>
+		
+		<input class="form-control" type="text" ng-model="member.hability" placeholder="Habilidade">
+		<button class="btn btn-primary" ng-click="addMember(member)" >Add</button>
+		<h1>{{myForm.myField.$touched}}</h1>
+	</form>
+	<table class="table table-striped">
+		<tr>
+			<td>Name</td>
+			<td>Hability</td>
+		</tr>
+		<tr ng-repeat="hero in team">
+			<td>{{hero.name}}</td>
+			<td>{{hero.hability}}</td>
+		</tr>
+	</table>
+</div>
+<br />
+<div class="container" ng-controller="labFootController">
+	<p>{{footer}}</p>
+</div>
+
+</body>
+
+</html>
