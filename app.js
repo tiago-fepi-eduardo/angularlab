@@ -1,4 +1,5 @@
 $app = angular.module('labApp', []);
+
 $app.controller('labAppController', function($scope) {
 	
 	$scope.message = "Catalogo";
@@ -11,8 +12,12 @@ $app.controller('labAppController', function($scope) {
 	
 	$scope.addMember = function($member){
 		$scope.team.push(angular.copy($member));
-	}
+		}	
+	$scope.removeMember = function(x){
+		$scope.team.splice(x,1);
+		}
 });
+
 $app.controller('labFootController', function($scope){
 	$scope.footer = "@Todos os direitos reservados.";
 });

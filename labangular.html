@@ -14,22 +14,26 @@
 	
 	<h3>{{title}}</h3>
 	<form name="myForm" >
-		<input class="form-control" type="text" name="myField" ng-model="member.name" placeholder="Nome do heroi" required>
-		
-		<input class="form-control" type="text" ng-model="member.hability" placeholder="Habilidade">
+		<input class="form-control" type="text" name="myName" ng-model="member.name" placeholder="Nome do heroi" required>
+			<span class="alert alert-info" ng-show="myForm.myName.$touched && myForm.myName.$invalid">Campo obrigatório</span>
+		<input class="form-control" type="text" name="myHability" ng-model="member.hability" placeholder="Habilidade">
 		<button class="btn btn-primary" ng-click="addMember(member)" >Add</button>
-		<h1>{{myForm.myField.$touched}}</h1>
 	</form>
+	
 	<table class="table table-striped">
 		<tr>
 			<td>Name</td>
 			<td>Hability</td>
+			<td>Remove</td>
 		</tr>
 		<tr ng-repeat="hero in team">
 			<td>{{hero.name}}</td>
 			<td>{{hero.hability}}</td>
+			<td><span ng-click="removeMember($index)">&times;</span></td>
 		</tr>
 	</table>
+	
+	<div ng-include="'table.html'"></div>
 </div>
 <br />
 <div class="container" ng-controller="labFootController">
